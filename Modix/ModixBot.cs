@@ -116,23 +116,23 @@ namespace Modix
         {
             _config = new ModixConfig
             {
-                DiscordToken = Environment.GetEnvironmentVariable("Token"),
-                ReplToken = Environment.GetEnvironmentVariable("ReplToken"),
-                StackoverflowToken = Environment.GetEnvironmentVariable("StackoverflowToken"),
+                DiscordToken = Environment.GetEnvironmentVariable("MODIX_DISCORD_TOKEN"),
+                ReplToken = Environment.GetEnvironmentVariable("MODIX_REPL_TOKEN"),
+                StackoverflowToken = Environment.GetEnvironmentVariable("MODIX_STACKOVERFLOW_TOKEN"),
                 PostgreConnectionString = Environment.GetEnvironmentVariable("MODIX_DB_CONNECTION"),
-                DiscordClientId = Environment.GetEnvironmentVariable("DiscordClientId"),
-                DiscordClientSecret = Environment.GetEnvironmentVariable("DiscordClientSecret"),
+                DiscordClientId = Environment.GetEnvironmentVariable("MODIX_DISCORD_CLIENTID"),
+                DiscordClientSecret = Environment.GetEnvironmentVariable("MODIX_DISCORD_CLIENTSECRET"),
             };
 
-            var id = Environment.GetEnvironmentVariable("log_webhook_id");
+            var id = Environment.GetEnvironmentVariable("MODIX_WEBHOOK_TOKEN");
 
             if (!string.IsNullOrWhiteSpace(id))
             {
                 _config.WebhookId = ulong.Parse(id);
-                _config.WebhookToken = Environment.GetEnvironmentVariable("log_webhook_token");
+                _config.WebhookToken = Environment.GetEnvironmentVariable("MODIX_WEBHOOK_TOKEN");
             }
 
-            var sentryToken = Environment.GetEnvironmentVariable("SentryToken");
+            var sentryToken = Environment.GetEnvironmentVariable("MODIX_SENTRY_DSN");
             if (!string.IsNullOrWhiteSpace(sentryToken))
             {
                 _config.SentryToken = sentryToken;

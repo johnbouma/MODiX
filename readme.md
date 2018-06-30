@@ -28,17 +28,18 @@ Why we do it that way:
 - Complete seperation between evaluation and discord bot
 - Sandboxed environment for script execution
 - Eliminating the risk of some compilation/execution crashing Modix
-- Azure function restarts itself automagically when it crashes
 
-> Thats not how you should do it
+## Getting an development environment
 
-It works fine so far.
+### 1. Get third party tokens
 
-> You shouldn´t run a public REPL
+Modix uses quite a bit of different API´s to provide its service. If you want to set up a fully functional instance of the bot, you need to declare the following environment variables:
 
-We had no serious abuse after running it for almost 14 days.
-
-> Running it in the executing assembly would be way faster
-
-And also result in REPL-Sessions that can potentially crash the bot.
-WEW LAD
+- "MODIX_DISCORD_TOKEN"
+- "MODIX_REPL_TOKEN": Token used for the [Repl](https://github.com/discord-csharp/CSDiscord)
+- "MODIX_STACKOVERFLOW_TOKEN"
+- "MODIX_DB_CONNECTION"
+- "MODIX_DISCORD_CLIENTID"
+- "MODIX_DISCORD_CLIENTSECRET"
+- "MODIX_WEBHOOK_TOKEN"
+- "MODIX_SENTRY_DSN"
